@@ -1,0 +1,46 @@
+﻿#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Please enter the number of the class:" << "\n";
+    cin >> n;
+    cout << "Please enter the score of each student:" << "\n";
+    int stu[n];
+    for (int i = 0; i < n; i++) {
+        cin >> stu[i];
+    }
+    int sum1 = 0, sum2 = 0;
+    int max1 = 0, max2 = 0,min1 = 100, min2 = 100;
+    int highest1 = 0, highest2 = 0, lowest1 = 0, lowest2 = 0;
+    int n1 = 0, n2 = 0;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            n1++;
+            sum1 += stu[i];
+            if (stu[i] > max1) {
+                max1 = stu[i];
+                highest1 = i;
+            }
+            if (stu[i] < min1) {
+                min1 = stu[i];
+                lowest1 = i;
+            }
+        } else {
+            n2++;
+            sum2 += stu[i];
+            if (stu[i] > max2) {
+                max2 = stu[i];
+                highest2 = i;
+            }
+            if (stu[i] < min2) {
+                min2 = stu[i];
+                lowest2 = i;
+            }
+        }
+    }
+    float avg1 = sum1/n1;
+    float avg2 = sum2/n2;
+    cout << "odd group's average:" << avg1 << "\n" << "highest:" << max1 << " " << highest1+1 << "\n" << "lowest:" << min1 << " " << lowest1+1 << "\n";
+    cout << "even group's average:" << avg2 << "\n" << "highest:" << max2 << " " << highest2+1 << "\n" << "lowest:" << min2 << " " << lowest2+1 << "\n";
+}
